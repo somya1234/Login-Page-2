@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html >
+    <head>
+        <!--<meta charset="utf-8">-->
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <meta name="HandheldFriendly" content="true">
+
+        <title>Animated Login Form</title>
+        <link rel="stylesheet" href="login.css">
+
+        <script type="text/javascript">
+
+        /*function verify(){
+            var username= document.getElementById('uname');
+            var regx= /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})(.[a-z]{2,10})?$/;
+
+            if(regx.test(username)){
+                document.getElementById("label1").innerHTML="Valid Username";
+                document.getElementById("label1").style.visibility="visible";
+                document.getElementById("label1").style.color="green";
+                return true;
+            }
+            else{
+                document.getElementById("label1").innerHTML="Invalid ";
+                document.getElementById("label1").style.visibility="visible";
+                document.getElementById("label1").style.color="red";
+                return false;
+            }
+        }*/
+
+        function validate(){
+            var username= document.getElementById('uname');
+            var password1 = document.getElementById('pass1');
+            var password2 = document.getElementById('pass2');
+
+
+          //Form Validation
+             if(username.value.trim()==""){
+                username.style.border="solid 3px red";
+                document.getElementById('label1').style.visibility="visible";
+                return false;
+            }
+            else if(password1.value.trim()==""){
+                password1.style.border="solid 3px red";
+                document.getElementById('label2').style.visibility="visible";
+                return false;
+            }
+            else if(password1.value.trim().length<5){
+                password1.style.border="solid 3px red";
+                document.getElementById('label3').style.visibility="visible";
+                return false;
+            }
+            else if(password2.value.trim()==""){
+                password2.style.border="solid 3px red";
+                document.getElementById('label4').style.visibility="visible";
+                return false;
+            }
+            else if(password2.value.trim().length<5){
+                password1.style.border="solid 3px red";
+                document.getElementById('label5').style.visibility="visible";
+                return false;
+            } 
+            else if(password1.value!=password2.value){
+               //alert('Passwords do not match');
+                password2.style.border="solid 3px red";
+               document.getElementById('label6').style.visibility="visible";
+                return false;
+            }
+           else{
+                return true;
+}
+            
+        }
+
+        </script>
+    </head>
+    <body>
+        <form class="box" action="home.html" onsubmit="return validate() " >
+            <h1>Login</h1>
+            <input id="uname" type="text"  placeholder="Username">
+            <label id="label1" style="color:red; visibility:hidden;">Invalid Username</label>
+           
+            <input id="pass1" type="password"  placeholder="Password">
+            <label id="label2" style="color:red; visibility: hidden; margin: 50px">  Invalid Password</label>
+            <label id="label3" style="color:red; visibility: hidden;">Password should be minimum of 6 characters.</label>
+          
+            <input id="pass2" type="password"  placeholder="Confirm password">
+            <label id="label4" style="color:red; visibility: hidden;margin: 50px">  Invalid Password</label>
+            <label id="label5" style="color:red; visibility: hidden;">Password should be minimum of 6 characters.</label>
+            <label id="label6" style="color:red; visibility: hidden;">Passwords don't match</label>
+            <button type="submit">Login</button>
+        </form>
+    </body>
+
+</html>
